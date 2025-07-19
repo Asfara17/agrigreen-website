@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriGreen – MSME Hackathon</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4fff4;
+      color: #2e7d32;
+      padding: 30px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #1b5e20;
+      font-size: 32px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #e8f5e9;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #c8e6c9;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #a5d6a7;
+    }
+    button {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2e7d32;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AgriGreen</h1>
+    <p><strong>Low-Carbon Packaging & Carbon Tracker for MSMEs</strong></p>
+    
+    <p>Replace plastic with bio-packaging and track how much carbon you save. Enter the number of eco trays used this month:</p>
+
+    <label for="trays">Number of Bio Trays Used:</label>
+    <input type="number" id="trays" placeholder="e.g., 250" />
+    <button onclick="calculateCO2()">Calculate CO₂ Saved</button>
+
+    <p class="result" id="output"></p>
+
+    <button onclick="downloadPDF()">Download Green Report (PDF)</button>
+  </div>
+
+  <script>
+    function calculateCO2() {
+      const trays = document.getElementById("trays").value;
+      const co2PerTray = 0.3; // approx 0.3 kg CO₂ saved per tray
+      const totalCO2 = (trays * co2PerTray).toFixed(2);
+      document.getElementById("output").innerText =
+        `Estimated CO₂ Saved: ${totalCO2} kg`;
+    }
+
+    function downloadPDF() {
+      alert("Report download feature will be available in full version.");
+    }
+  </script>
+</body>
+</html>
